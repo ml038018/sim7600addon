@@ -13,10 +13,11 @@ init: false
 
 host_network: true
 
-uart: true
-
 ports:
   5000/tcp: 5000
+
+devices:
+  - /dev/serial/by-id:/dev/serial/by-id
 
 options:
   port: "/dev/serial/by-id/CHANGE_ME"
