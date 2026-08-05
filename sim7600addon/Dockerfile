@@ -2,14 +2,17 @@ FROM mcr.microsoft.com/dotnet/aspnet:8.0
 
 WORKDIR /app
 
-COPY publish/ .
+# Kopiraj cijeli sadržaj publish mape u /app
+COPY ./publish/. /app/
 
-COPY run.sh /run.sh
+# Kopiraj startup skriptu
+COPY ./run.sh /run.sh
 
-RUN chmod a+x /run.sh
+RUN chmod +x /run.sh
 
 ENV ASPNETCORE_URLS=http://+:5000
+ENV DOTNET_RUNNING_IN_CONTAINER=true
 
 EXPOSE 5000
 
-ENTRYPOINT ["/run.sh"]
+ENTRYPOINT ["/bin/sh", "/run.sh"]
