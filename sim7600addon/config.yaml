@@ -1,5 +1,5 @@
 name: SIM7600 Add-on
-version: "1.0.1"
+version: "1.0.2"
 slug: sim7600addon
 description: SIM7600 GSM modem for Home Assistant
 
@@ -13,13 +13,15 @@ init: false
 
 host_network: true
 
+uart: true
+
 ports:
   5000/tcp: 5000
 
 options:
-  port: "/dev/serial/by-id/CHANGE_ME"
+  port: "/dev/serial/by-id/usb-FTDI_FT232R_USB_UART_A5XK3RJT-if00-port0"
   baudrate: 9600
 
 schema:
-  port: str
+  port: "device(subsystem=tty)"
   baudrate: int
