@@ -1,5 +1,5 @@
 name: SIM7600 Add-on
-version: "1.0.0"
+version: "1.0.1"
 slug: sim7600addon
 description: SIM7600 GSM modem for Home Assistant
 
@@ -15,9 +15,6 @@ host_network: true
 
 ports:
   5000/tcp: 5000
-
-devices:
-  - /dev/serial/by-id:/dev/serial/by-id
 
 options:
   port: "/dev/serial/by-id/CHANGE_ME"
